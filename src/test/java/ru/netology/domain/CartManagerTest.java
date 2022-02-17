@@ -55,7 +55,7 @@ class CartManagerTest {
         manager.add(seventh);
 
         PurchaseFilm[] actual = manager.findAll();
-        PurchaseFilm[] expected = new PurchaseFilm[]{};
+        PurchaseFilm[] expected = new PurchaseFilm[]{first,second,third,fourth,fifth,sixth,seventh};
         assertArrayEquals(actual, expected);
 
     }
