@@ -3,6 +3,8 @@ package ru.netology.domain;
 public class CartManager {
     private PurchaseFilm[] items = new PurchaseFilm[0];
 
+    private int maxValue = 10;
+
     public PurchaseFilm[] findAll() {
         return items;
     }
@@ -48,6 +50,34 @@ public class CartManager {
         // меняем наши элементы
         items = tmp;
     }
+
+    public CartManager() {
+        maxValue = 10;
+    }
+
+    public CartManager(int maxValue) {
+        this.maxValue = maxValue;
+    }
+
+    public PurchaseFilm[] findLast() {
+        int resultLength;
+        if (items.length < maxValue) {
+            resultLength = items.length;
+        } else {
+            resultLength = maxValue;
+        }
+        PurchaseFilm[] result = new PurchaseFilm[resultLength];
+        for (int i = 0; i < result.length; i++) {
+            int index = items.length - i - 1;
+            result[i] = items[index];
+        }
+
+        // заполняем result из массива что лежит в поле
+        // в обратном порядке
+        return result;
+    }
 }
+
+
 
 
